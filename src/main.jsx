@@ -6,6 +6,7 @@ import App from './App.jsx'
 import { Register } from "./pages/Register/Register";
 import { Layout} from "./pages/Layout/Layout.jsx";
 import { Login } from "./pages/Login/Login";
+import { Home } from "./pages/Home/Home";
 
 
 
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Route element={<Layout/>}>
    
     <Route path={REGISTER_URL} element= {<Register/>} />
+    <Route path={HOME_URL} element= {<Home/>} />
     <Route path={LOGIN_URL} element ={<Login/>}/>
    
 

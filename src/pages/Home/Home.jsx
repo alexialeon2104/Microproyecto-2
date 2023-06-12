@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import Card from "../../components/Card/Card";
-import { useCharacters } from "../../hooks/useCharacters";
-import "./HomePage.css";
+import { useMovies } from "../../hooks/useMovies";
+import "./Home.module.css";
 
 export function Home() {
-  const { isLoading, characters, getCharacters } = useCharacters();
+  const { isLoading, movies, getMovies } = useMovies();
 
 
  
@@ -13,9 +13,9 @@ export function Home() {
   // Fetch para obtener las peliculas de la api
   useEffect(() => {
     if (!isLoading) {
-      getCharacters();
+      getMovies();
     }
-  }, [getCharacters]);
+  }, [getMovies]);
 
   return (
     <>
@@ -35,12 +35,12 @@ export function Home() {
     {/* SECCION DE PELICULAS DISPONIBLES MOSTRADAS EN CARTAS */}
       <div className="container"> 
         <h1 className="title">Cartelera</h1>
-        <div className="characters">
+        <div className="movies">
           {isLoading ? (
             <p className="loading">Cargando...</p>
           ) : (
-            characters.map((character) => (
-              <Card character={character} key={character.name} />
+            movies.map((movie) => (
+              <Card character={movie} key={movie.name} />
             ))
           )}
         </div>
