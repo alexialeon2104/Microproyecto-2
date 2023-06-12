@@ -4,7 +4,7 @@ import {Routes, Route, BrowserRouter} from "react-router-dom"
 import App from './App.jsx'
 
 import { Register } from "./pages/Register/Register";
-
+import { Layout} from "./pages/Layout/Layout.jsx";
 import { Login } from "./pages/Login/Login";
 
 
@@ -19,9 +19,11 @@ import {
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <React.StrictMode>
    <BrowserRouter>
    <Routes>
+    <Route element={<Layout/>}>
    
     <Route path={REGISTER_URL} element= {<Register/>} />
     <Route path={LOGIN_URL} element ={<Login/>}/>
@@ -31,7 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
 
 
-
+    </Route>
    </Routes>
    </BrowserRouter>
   </React.StrictMode>

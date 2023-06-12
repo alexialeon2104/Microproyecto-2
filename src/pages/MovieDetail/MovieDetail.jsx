@@ -4,6 +4,9 @@ import { useCharacters } from "../../hooks/useCharacters";
 import styles from "./CharacterDetail.module.css";
 
 export function CharacterDetailPage() {
+
+// ESTADOS PARA CARGAR LAS PELICULAS EN LA INTERFAZ
+
   const { characterId } = useParams();
   const { getCharacter, character, isLoading } = useCharacters();
 
@@ -15,6 +18,8 @@ export function CharacterDetailPage() {
     }
   }, [getCharacter]);
 
+  //SI SE CARGA CORRECTAMENTE LA PELICULA*/
+
   if (isLoading) {
     return (
       <div className={styles.container}>
@@ -22,6 +27,8 @@ export function CharacterDetailPage() {
       </div>
     );
   }
+
+  // SI NO SE ENCUENTRA LA PELICULA AL CARGAR 
 
   if (!isLoading && !character) {
     return (
@@ -31,7 +38,11 @@ export function CharacterDetailPage() {
     );
   }
 
+  // ESTRUCTURA DE LA PAGINA*/
+
   return (
+    <>
+    {/*SECCION CON LA INFORMACION DE LA PELICULA*/}
     <div className={styles.container}>
       <div className={styles.imageContainer}>
         <img src={image} className={styles.image} />
@@ -42,6 +53,13 @@ export function CharacterDetailPage() {
         <p className={styles.info}>Estado: {status}</p>
         <p className={styles.info}>Género: {gender}</p>
       </div>
+      <button>
+        {/*BOTON DE RESERVA*/}
+        </button>
+      <button>
+        {/*MARCADOR DE FAVORITO*/}
+        </button>
     </div>
+    </>
   );
 }
