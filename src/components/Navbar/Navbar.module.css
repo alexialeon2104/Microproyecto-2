@@ -4,6 +4,15 @@
     background: #181b20;
     padding: 24px 120px;
   }
+
+.page_name{
+  color: #fff;
+  font-size: 50px;
+  font-weight: 600px;
+  padding: 8px 16px;
+  display: flex;
+  align-content: center;
+}
   
   .navbar .menuList {
     display: flex;

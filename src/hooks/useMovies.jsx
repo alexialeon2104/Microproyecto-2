@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { fetchMovies } from '../utils/api-themoviebd';
 import { fetchNewMovies } from '../utils/api-themoviebd';
 import { fetchGenres } from '../utils/api-themoviebd';
@@ -8,28 +8,33 @@ import { fetchGenres } from '../utils/api-themoviebd';
 
 export function useMovies(){
     const [genres, setGenres] = useState([]);
-    const [movies, setMovies] = useState([]);    
+    const [movies, setMovies] = useState([]);  
     const [newMovies, setNewMovies] = useState([]);  
-    const [info, setInfo] = useState([]);
     const [isLoading, setLoading] = useState(false);
     
-    const getMovies = async () =>{
+    const getMovies = useCallback(async () =>{
         setLoading(true);
         const {data} = await fetchMovies()
         setMovies(data.results);
-        setLoading(false);
-    }
+        setLoading(false)
+        return movies;
+    });
 
     const getNewMovies = async () =>{
         setLoading(true);
         const {data} = await fetchNewMovies()
         setNewMovies(data.results);
         setLoading(false);
+        return newMovies
+        
       }
      
     const getGenres = async () =>{
+        setLoading(true);
         const {data} = await fetchGenres()
         setGenres(data.genres);
+        setLoading(false);
+        return genres;
     }
     
 

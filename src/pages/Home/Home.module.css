@@ -3,6 +3,16 @@
     min-height: 100vh;
     padding: 30px;
   }
+
+  .now_playing{
+    background: #272b33;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    align-self: center;
+    overflow: hidden;
+  }
+  
   
   .title {
     font-size: 2em;
