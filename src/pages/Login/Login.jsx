@@ -45,7 +45,7 @@ export function Login() {
       <form className={styles.form} onSubmit={onSubmit}>
         <h1 className={styles.title}>Bienvenido!</h1>
         <p className={styles.welcomeTxt}>
-          Inicia sesión e inspecciona tus personajes favoritos.
+          Inicia sesión para disfrutar tus peliculas y series favoritas!
         </p>
 
         {/* EMAIL FIELD */}
