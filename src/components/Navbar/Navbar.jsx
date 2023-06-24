@@ -27,6 +27,9 @@ export function Navbar() {
           </Link>
         </li>
       </ul>
+      <div className={styles.page_name}>
+        <span>   CINEMA UNIMET</span>
+      </div>
 
       {!isLoadingUser && (
         <ul className={styles.menuList}>
