@@ -7,7 +7,7 @@ import { Register } from "./pages/Register/Register";
 import { Layout} from "./pages/Layout/Layout.jsx";
 import { Login } from "./pages/Login/Login";
 import { Home } from "./pages/Home/Home";
-
+import { MovieDetail } from './pages/MovieDetail/MovieDetail.jsx';
 
 
 import {
@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Route path={REGISTER_URL} element= {<Register/>} />
     <Route path={HOME_URL} element= {<Home/>} />
     <Route path={LOGIN_URL} element ={<Login/>}/>
-   
+    <Route path={MOVIE_DETAIL_URL()} element={<MovieDetail/>}/>
 
 
     

@@ -7,7 +7,7 @@ import styles from "./Home.module.css";
 
 export function Home() {
   const { isLoading, movies, getMovies, genres, getGenres, newMovies, getNewMovies} = useMovies();
-  const images = [ "https://i.ibb.co/Nyy0qgN/Saman.jpg","https://i.ibb.co/ZG05nJs/cinema.jpg"];
+  const images = [ "https://i.ibb.co/Nyy0qgN/Saman.jpg","https://i.ibb.co/ZG05nJs/cinema.jpg","https://i.ibb.co/R4MggS3/cine2.jpg","https://i.ibb.co/sVsdzjw/Pantalla-de-cine.jpg","https://i.ibb.co/tsM6cgz/auditorio.jpg"];
 
 
  
@@ -17,7 +17,7 @@ export function Home() {
   useEffect(() => {
     if (!isLoading) {
       getMovies()
-      
+      getNewMovies()
     }
   }, []);
 
@@ -50,7 +50,18 @@ export function Home() {
 
       {/* SECCION DE PROXIMOS ESTRENOS*/} 
 
-
+      <div className={styles.container}> 
+        <h1 className={styles.title}>Proximos estrenos</h1>
+        <div className={styles.now_playing}>
+          {isLoading ? (
+            <p className={styles.loading}>Cargando...</p>
+          ) : (
+            newMovies.map((newMovie) => (
+              <Card movie={newMovie} key={newMovie.id} />
+            ))
+          )}
+        </div>
+      </div>
 
 
 

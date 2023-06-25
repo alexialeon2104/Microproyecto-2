@@ -1,4 +1,5 @@
 
+
 .container {
   display: flex;
   height: 250px;
@@ -14,21 +15,23 @@
   overflow: hidden;
 }
 
+.container:hover {
+  background-color: #000000;
+  cursor: pointer;
+  text-decoration: none;
+  text-decoration-line: none;
+}
+
+.container.link {
+  text-decoration-line: underline;
+  color: white;
+}
 .name {
   font-size: 18px;
-}
-
-.name:hover {
-  color: #84817a;
-  cursor: pointer;
-}
-
-.name .link {
-  font-size: inherit;
-  font-style: inherit;
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
+
 
 .infoContainer {
   background: #3c3e44;
@@ -36,13 +39,13 @@
 }
 
 .subtitle {
-  background: #3c3e44;
-  color: rgb(158, 158, 158);
+  color: rgb(255, 255, 255);
   font-weight: 300;
   font-size: 18px;
 }
 
 .subtitleInfo {
+  color: rgb(255, 255, 255);
   font-weight: 300;
   font-size: 15px;
 }
@@ -52,6 +55,12 @@
   height: 100%;
   object-fit: cover;
 }
+
+.rightSideContainer:hover{
+  background: #16140f;
+  cursor: pointer;
+}
+
 
 .rightSideContainer {
   background: #3c3e44;
