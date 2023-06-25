@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCharacters } from "../../hooks/useCharacters";
-import styles from "./CharacterDetail.module.css";
+import { useMovies } from "../../hooks/useMovies";
+import styles from "./MovieDetail.module.css";
+import { IMAGE_PATH } from "../../utils/api-themoviebd";
 
-export function CharacterDetailPage() {
+export function MovieDetail() {
 
 // ESTADOS PARA CARGAR LAS PELICULAS EN LA INTERFAZ
 
-  const { characterId } = useParams();
-  const { getCharacter, character, isLoading } = useCharacters();
+  const { movie_id } = useParams();
+  const { getInfo, info, isLoading } = useMovies();
 
-  const { name, image,species, status, gender  } = character || {};
+  const { original_title, poster_path,overview, original_language, runtime  } = info || {};
 
   useEffect(() => {
-    if (!isLoading && characterId) {
-      getCharacter(characterId);
+    if (!isLoading && movie_id) {
+      getInfo(movie_id);
     }
-  }, [getCharacter]);
+  }, []);
 
-  //SI SE CARGA CORRECTAMENTE LA PELICULA*/
+  //SI SE CARGA CORRECTAMENTE LA INFO DE LA PELICULA*/
 
   if (isLoading) {
     return (
@@ -30,7 +31,7 @@ export function CharacterDetailPage() {
 
   // SI NO SE ENCUENTRA LA PELICULA AL CARGAR 
 
-  if (!isLoading && !character) {
+  if (!isLoading && !info) {
     return (
       <div className={styles.container}>
         <h1 className={styles.loadingTxt}>NOT FOUND DATA</h1>
@@ -45,13 +46,13 @@ export function CharacterDetailPage() {
     {/*SECCION CON LA INFORMACION DE LA PELICULA*/}
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <img src={image} className={styles.image} />
+        <img src={IMAGE_PATH + poster_path} className={styles.image} />
       </div>
       <div className={styles.details}>
-        <h1 className={styles.title}>{name}</h1>
-        <p className={styles.info}>Especie: {species}</p>
-        <p className={styles.info}>Estado: {status}</p>
-        <p className={styles.info}>Género: {gender}</p>
+        <h1 className={styles.title}>{original_title}</h1>
+        <p className={styles.info}>Sinopsis: {overview}</p>
+        <p className={styles.info}>Idiomas: {original_language}</p>
+        <p className={styles.info}>Duración: {runtime} min</p>
       </div>
       <button>
         {/*BOTON DE RESERVA*/}
