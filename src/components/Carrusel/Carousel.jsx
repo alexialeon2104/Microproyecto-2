@@ -18,8 +18,8 @@ const Carousel = ({ images }) => {
         <img src={images[currentImageIndex]} alt={`Image ${currentImageIndex}`} />
       </div>
       <div className="carousel__controls">
-      <button className="carousel__prev" onClick={handlePrevImage}>Anterior</button>
-      <button className="carousel__next" onClick={handleNextImage}>Siguiente</button>
+      <button className="carousel__prev" onClick={handlePrevImage}> Prev</button>
+      <button className="carousel__next" onClick={handleNextImage}>Sig</button>
       </div>
     </div>
   );
